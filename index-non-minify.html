@@ -20,11 +20,18 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#BD5D38" />
 
-  <link rel="preconnect dns-prefetch" href="https://www.googletagmanager.com" />
-  <link rel="preconnect dns-prefetch" href="https://www.google-analytics.com" />
+  <!-- Preconnect to improve loading of external resources -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://www.google-analytics.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+  <!-- Prefetch resources for better performance -->
+  <link rel="prefetch" href="https://www.google-analytics.com/analytics.js" as="script" />
+  <link rel="prefetch" href="https://www.googletagmanager.com/gtag/js?id=UA-162872701-1" as="script" />
 
   <!-- Google Analytics -->
-  <script>
+  <script async defer>
     (function (i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
       (i[r] =
@@ -51,7 +58,7 @@
   <!-- End Google Analytics -->
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-162872701-1"></script>
+  <script async defer src="https://www.googletagmanager.com/gtag/js?id=UA-162872701-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -63,9 +70,12 @@
     gtag('config', 'UA-162872701-1');
   </script>
 
-  <link rel="stylesheet" href="styles.css" />
-  <script type="module" src="./script.js"></script>
+  <link async rel="stylesheet" href="styles.css" />
+
+  <!-- Defer non-critical JS -->
+  <script type="module" defer src="./script.js"></script>
 </head>
+
 
 <body id="page-top">
   <app-root ng-version="10.2.5">
